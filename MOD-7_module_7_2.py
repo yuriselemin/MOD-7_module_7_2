@@ -4,13 +4,13 @@
 
 
 def custom_write(file_name, strings):
-    f = open(file_name, 'w', encoding='utf-8')
+    file = open(file_name, 'w', encoding='utf-8')
     strings_positions = {}
     for i, string in enumerate(strings):
-        f.write(string + '\n')
-        start_position = f.tell()
+        file.write(string + '\n')
+        start_position = file.tell()
         strings_positions[(i + 1, start_position)] = string
-    f.close()
+    file.close()
     return strings_positions
 
 
@@ -24,6 +24,3 @@ info = [
 result = custom_write('test.txt', info)
 for elem in result.items():
     print(elem)
-
-
-

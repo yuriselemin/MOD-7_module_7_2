@@ -1,17 +1,20 @@
 
+
+
 # Домашнее задание по теме "Позиционирование в файле".
 
 
 
 def custom_write(file_name, strings):
-    file = open(file_name, 'w', encoding='utf-8')
+    f = open(file_name, 'w', encoding='utf-8')
     strings_positions = {}
     for i, string in enumerate(strings):
-        file.write(string + '\n')
-        start_position = file.tell()
+        f.write(f'\n{string}')
+        start_position = f.tell()
         strings_positions[(i + 1, start_position)] = string
-    file.close()
+    f.close()
     return strings_positions
+
 
 
 info = [
@@ -24,5 +27,3 @@ info = [
 result = custom_write('test.txt', info)
 for elem in result.items():
     print(elem)
-
-
